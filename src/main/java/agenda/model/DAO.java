@@ -25,14 +25,14 @@ public class DAO {
 		}
 	}
 	
-	public void testeConexao() {
-		try {
-			Connection connection = conectar();
-			System.out.println(connection);
-			connection.close();
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-	}
+//	public void testeConexao() {
+//		try {
+//			Connection connection = conectar();
+//			System.out.println(connection);
+//			connection.close();
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//		}
+//	}
 
 }
