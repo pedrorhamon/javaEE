@@ -18,10 +18,16 @@ public class Controller extends HttpServlet {
 		super();
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String p_action = request.getServletPath();
+		if (p_action.equals("/main")) {
+			this.contatos(request, response);
+		}
 		// dao.testeConexao();
+	}
+	
+	protected void contatos(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.sendRedirect("agenda.jsp");
 	}
 
 }
