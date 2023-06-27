@@ -12,8 +12,10 @@ function validar() {
 		return false;
 	} else if (fone === "") {
 		alert('Preencha o campo fone');
-		frmContato.nome.focus();
+		frmContato.fone.focus();
 		return false;
+	} else {
+		document.forms['frmContato'].submit();
 	}
 
 }
