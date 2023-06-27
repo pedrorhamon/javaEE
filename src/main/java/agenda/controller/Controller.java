@@ -24,6 +24,8 @@ public class Controller extends HttpServlet {
 			this.contatos(request, response);
 		} else if (p_action.equals("/insert")) {
 			this.novoContato(request, response);
+		} else {
+			response.sendRedirect("index.html");
 		}
 		// dao.testeConexao();
 	}
