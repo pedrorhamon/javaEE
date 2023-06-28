@@ -30,7 +30,6 @@ public class Controller extends HttpServlet {
 		} else {
 			response.sendRedirect("index.html");
 		}
-		// dao.testeConexao();
 	}
 	
 	protected void novoContato(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
