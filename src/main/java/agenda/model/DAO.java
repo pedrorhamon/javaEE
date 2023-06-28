@@ -13,6 +13,7 @@ public class DAO {
 	private final String user = "root";
 	private final String password = "root";
 
+	@SuppressWarnings("unused")
 	private Connection conectar() {
 		Connection con = null;
 		try {
