@@ -37,6 +37,15 @@ public class Controller extends HttpServlet {
 		contato.setFone(request.getParameter("fone"));
 		contato.setEmail(request.getParameter("email"));
 	}
+	
+	protected void atualizarContato(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		if(contato.getIdcon() != null) {
+			contato.setNome(request.getParameter("nome"));
+			contato.setFone(request.getParameter("fone"));
+			contato.setEmail(request.getParameter("email"));
+		}
+		throw new RuntimeException("Usuário já cadastrado!");
+	}
 
 	protected void contatos(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.sendRedirect("agenda.jsp");
