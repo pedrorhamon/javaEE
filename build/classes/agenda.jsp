@@ -18,5 +18,25 @@
 <body>
 	<h1>Agenda de Contatos</h1>
 	<a href="novo.html" class="Botao1">Novo contato</a>
+	<table>
+		<thead>
+			<tr>
+				<td>id</td>
+				<td>Nome</td>
+				<td>Fone</td>
+				<td>Email</td>
+			</tr>
+		</thead>
+		<tbody>
+			<% for(int i =0; i< lista.size(); i++) {%>
+				<tr>
+					<td><%=lista.get(i).getIdcon()%></td>
+					<td><%=lista.get(i).getNome()%></td>
+					<td><%=lista.get(i).getFone()%></td>
+					<td><%=lista.get(i).getEmail()%></td>
+				</tr>
+			<%}%>
+		</tbody>
+	</table>
 </body>
 </html>
