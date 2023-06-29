@@ -3,6 +3,7 @@ package agenda.controller;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,7 +35,11 @@ public class Controller extends HttpServlet {
 	}
 	
 	protected void contatosLista(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<JavaBeans> buscarContato = this.dao.buscarContato();
+		List<JavaBeans> lista = this.dao.buscarContato();
+		
+		request.setAttribute("contatos", lista);
+		RequestDispatcher rd = request.getRequestDispatcher("agenda.jsp");
+		rd.forward(request, response);
 	}
 
 	protected void novoContato(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
