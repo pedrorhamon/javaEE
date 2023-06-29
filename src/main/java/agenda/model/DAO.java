@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -47,24 +48,34 @@ public class DAO {
 			e.printStackTrace();
 		}
 	}
-	
-	//Crud Read//
+
+	// Crud Read//
 	public List<JavaBeans> buscarContato() {
+
+		List<JavaBeans> contatos = new ArrayList<>();
+
 		String lista = "select * from contatos order by nome";
-		
+
 		try {
 			Connection connection = conectar();
 
 			PreparedStatement pst = connection.prepareStatement(lista);
-			
+
 			ResultSet executeUpdate = pst.executeQuery();
-			while(executeUpdate.next()) {
+			while (executeUpdate.next()) {
 				String idcon = executeUpdate.getString(1);
+				String nome = executeUpdate.getString(2);
+				String fone = executeUpdate.getString(3);
+				String email = executeUpdate.getString(4);
+
+				contatos.add(new JavaBeans(idcon, nome, fone, email));
 			}
 			pst.close();
+			return contatos;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return contatos;
 	}
 
 //	public void testeConexao() {
