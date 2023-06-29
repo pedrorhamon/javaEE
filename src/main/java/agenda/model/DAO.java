@@ -3,6 +3,8 @@ package agenda.model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.List;
 
 /**
  * @author pedroRhamon
@@ -40,6 +42,25 @@ public class DAO {
 			pst.setString(3, contato.getEmail());
 
 			pst.executeUpdate();
+			pst.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	//Crud Read//
+	public List<JavaBeans> buscarContato() {
+		String lista = "select * from contatos order by nome";
+		
+		try {
+			Connection connection = conectar();
+
+			PreparedStatement pst = connection.prepareStatement(lista);
+			
+			ResultSet executeUpdate = pst.executeQuery();
+			while(executeUpdate.next()) {
+				String idcon = executeUpdate.getString(1);
+			}
 			pst.close();
 		} catch (Exception e) {
 			e.printStackTrace();

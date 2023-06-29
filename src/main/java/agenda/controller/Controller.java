@@ -1,6 +1,7 @@
 package agenda.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,6 +33,10 @@ public class Controller extends HttpServlet {
 		}
 	}
 	
+	protected void contatosLista(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		List<JavaBeans> buscarContato = this.dao.buscarContato();
+	}
+
 	protected void novoContato(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		contato.setNome(request.getParameter("nome"));
 		contato.setFone(request.getParameter("fone"));
