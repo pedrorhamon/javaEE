@@ -18,7 +18,7 @@
 <body>
 	<h1>Agenda de Contatos</h1>
 	<a href="novo.html" class="Botao1">Novo contato</a>
-	<table>
+	<table id="tabela">
 		<thead>
 			<tr>
 				<td>id</td>

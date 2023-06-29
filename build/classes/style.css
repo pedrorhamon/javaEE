@@ -38,3 +38,20 @@ h1 {
 	border: 1px solid #66bbff;
 	border-radius: 5px;
 }
+
+#tabela {
+	margin-top: 30px;
+}
+
+#tabela th {
+	border: 1px solid #ddd;
+	padding: 10px;
+	text-align: left;
+	background-color: #66bbff;
+	color: #fff;
+}
+
+#tabela td {
+	border: 1px solid #ddd;
+	padding: 10px;
+}
