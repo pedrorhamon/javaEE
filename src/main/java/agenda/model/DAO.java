@@ -28,7 +28,7 @@ public class DAO {
 			return null;
 		}
 	}
-
+	
 	// Crud Created//
 	public void inserirContato(JavaBeans contato) {
 		String create = "insert into contatos (nome,fone,emal) values (?,?,?)";
@@ -47,6 +47,11 @@ public class DAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	// Crud Update
+	public void atualizarContato(JavaBeans contato) {
+		
 	}
 
 	// Crud Read//
