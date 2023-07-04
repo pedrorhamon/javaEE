@@ -59,6 +59,18 @@ public class Controller extends HttpServlet {
 		}
 		throw new RuntimeException("Usuário já cadastrado!");
 	}
+	
+	protected void excluir(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		if(contato.getIdcon() != null) {
+			contato.setNome(request.getParameter("nome"));
+			contato.setFone(request.getParameter("fone"));
+			contato.setEmail(request.getParameter("email"));
+			
+			this.dao.deletar(contato);
+			response.sendRedirect("main");
+		}
+		throw new RuntimeException("Usuário já excluido!");
+	}
 
 	protected void contatos(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.sendRedirect("agenda.jsp");

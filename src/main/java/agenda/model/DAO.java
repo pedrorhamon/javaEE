@@ -83,6 +83,10 @@ public class DAO {
 		return contatos;
 	}
 
+	public void deletar(JavaBeans contato) {
+		String create = "delele from contatos (nome,fone,emal) where values (?,?,?)";
+	}
+
 //	public void testeConexao() {
 //		try {
 //			Connection connection = conectar();
