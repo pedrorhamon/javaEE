@@ -54,6 +54,7 @@ public class Controller extends HttpServlet {
 	}
 	
 	protected void atualizarContato(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String idcon = request.getParameter("idcon");
 		if(contato.getIdcon() != null) {
 			contato.setNome(request.getParameter("nome"));
 			contato.setFone(request.getParameter("fone"));
