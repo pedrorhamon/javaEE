@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import agenda.model.DAO;
 import agenda.model.JavaBeans;
 
-@WebServlet(urlPatterns = { "/Controller", "/main", "/insert" })
+@WebServlet(urlPatterns = { "/Controller", "/main", "/insert", "/select" })
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	DAO dao = new DAO();
@@ -29,6 +29,8 @@ public class Controller extends HttpServlet {
 			this.contatos(request, response);
 		} else if (p_action.equals("/insert")) {
 			this.novoContato(request, response);
+		} else if (p_action.equals("/select")) {
+			this.atualizarContato(request, response);
 		} else {
 			response.sendRedirect("index.html");
 		}
