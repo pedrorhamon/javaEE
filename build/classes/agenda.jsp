@@ -36,6 +36,7 @@
 					<td><%=lista.get(i).getFone()%></td>
 					<td><%=lista.get(i).getEmail()%></td>
 					<td>a<a href="select?idcon=<%=lista.get(i).getIdcon()%>" class="Botao1">Editar</a></td>
+					<td>a<a href="excluir?idcon=<%=lista.get(i).getIdcon()%>" class="Botao1">Excluir</a></td>
 				</tr>
 			<%}%>
 		</tbody>
