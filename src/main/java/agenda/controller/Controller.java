@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import agenda.model.DAO;
 import agenda.model.JavaBeans;
 
-@WebServlet(urlPatterns = { "/Controller", "/main", "/insert", "/select" })
+@WebServlet(urlPatterns = { "/Controller", "/main", "/insert", "/select", "update" })
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	DAO dao = new DAO();
