@@ -13,16 +13,16 @@
 	<form action="">
 		<table>
 			<tr>
-				<td><input type="text" name="idcon" class="caixa3" readonly/></td>
+				<td><input type="text" name="idcon" class="caixa3" value="<%out.print(request.getAttribute("idcon"));%>" readonly/></td>
 			</tr>
 			<tr>
-				<td><input type="text" name="name" class="Caixa1" /></td>
+				<td><input type="text" name="name" class="Caixa1" value="<%out.print(request.getAttribute("nome"));%>"/></td>
 			</tr>
 			<tr>
-				<td><input type="text" name="fone" class="Caixa2" /></td>
+				<td><input type="text" name="fone" class="Caixa2" value="<%out.print(request.getAttribute("fone"));%>"/></td>
 			</tr>
 			<tr>
-				<td><input type="text" name="email" class="Caixa1" /></td>
+				<td><input type="text" name="email" class="Caixa1" value="<%out.print(request.getAttribute("email"));%>"/></td>
 			</tr>
 		</table>
 		<input type="button" class="Botao1" value="Salvar" onclick="validar()" />
