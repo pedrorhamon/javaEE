@@ -56,6 +56,7 @@ public class Controller extends HttpServlet {
 	protected void atualizarContato(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String idcon = request.getParameter("idcon");
 		contato.setIdcon(idcon);
+		this.dao.selecionarContato(contato);
 		throw new RuntimeException("Usuário já cadastrado!");
 	}
 	

@@ -50,8 +50,24 @@ public class DAO {
 	}
 	
 	// Crud Update
-	public void atualizarContato(JavaBeans contato) {
-		
+	public void selecionarContato(JavaBeans contato) {
+		String query = "select * from contatos where idcon = ?";
+		try {
+			Connection connection = conectar();
+
+			PreparedStatement pst = connection.prepareStatement(query);
+			pst.setString(1, contato.getIdcon());
+			ResultSet executeUpdate = pst.executeQuery();
+
+			while (executeUpdate.next()) {
+				contato.setIdcon(executeUpdate.getString(1));
+				contato.setNome(executeUpdate.getString(2));
+				contato.setFone(executeUpdate.getString(3));
+				contato.setEmail(executeUpdate.getString(4));
+			}
+		} catch (Exception e) {
+		}
+
 	}
 
 	// Crud Read//
