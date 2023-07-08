@@ -13,7 +13,7 @@
 	<form action="">
 		<table>
 			<tr>
-				<td><input type="text" name="idcon" class="caixa3" /></td>
+				<td><input type="text" name="idcon" class="caixa3" readonly/></td>
 			</tr>
 			<tr>
 				<td><input type="text" name="name" class="Caixa1" /></td>
