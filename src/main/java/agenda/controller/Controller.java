@@ -57,6 +57,14 @@ public class Controller extends HttpServlet {
 		String idcon = request.getParameter("idcon");
 		contato.setIdcon(idcon);
 		this.dao.selecionarContato(contato);
+		
+		request.setAttribute("idcon", contato.getIdcon());
+		request.setAttribute("nome", contato.getNome());
+		request.setAttribute("fone", contato.getFone());
+		request.setAttribute("email", contato.getEmail());
+		
+		RequestDispatcher rd = request.getRequestDispatcher("editar.jsp");
+		rd.forward(request, response);
 	}
 	
 	protected void excluir(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
