@@ -38,9 +38,15 @@ public class Controller extends HttpServlet {
 		}
 	}
 	
-	protected void atualizarContato(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
+	protected void atualizarContato(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		contato.setIdcon(request.getParameter("idcon"));
+		contato.setNome(request.getParameter("nome"));
+		contato.setFone(request.getParameter("fone"));
+		contato.setEmail(request.getParameter("email"));
 		
+		dao.atualizarContato(contato);
+		
+		response.sendRedirect("main");
 	}
 
 	protected void contatosLista(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

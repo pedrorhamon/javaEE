@@ -70,7 +70,17 @@ public class DAO {
 	}
 	
 	public void atualizarContato(JavaBeans contato) {
-		selecionarContato();
+		String create = "update contatos set nome=?,fone=?, email=?, where idcon=? ";
+		try {
+			Connection connection = conectar();
+			PreparedStatement pst = connection.prepareStatement(create);
+			pst.setString(1, contato.getNome());
+			pst.setString(2, contato.getFone());
+			pst.setString(3, contato.getEmail());
+			pst.setString(4, contato.getIdcon());
+			pst.executeUpdate();
+			connection.close();
+		} catch (Exception e) {}
 	}
 
 	// Crud Read//
