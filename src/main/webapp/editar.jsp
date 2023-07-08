@@ -10,7 +10,7 @@
 </head>
 <body>
 	<h1>Editar contato</h1>
-	<form action="">
+	<form action="update" name="frmContato">
 		<table>
 			<tr>
 				<td><input type="text" name="idcon" class="caixa3" value="<%out.print(request.getAttribute("idcon"));%>" readonly/></td>

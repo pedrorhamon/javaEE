@@ -30,12 +30,19 @@ public class Controller extends HttpServlet {
 		} else if (p_action.equals("/insert")) {
 			this.novoContato(request, response);
 		} else if (p_action.equals("/select")) {
-			this.atualizarContato(request, response);
+			this.selecionarContato(request, response);
+		}else if (p_action.equals("/update")) {
+				this.atualizarContato(request, response);
 		} else {
 			response.sendRedirect("index.html");
 		}
 	}
 	
+	protected void atualizarContato(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	protected void contatosLista(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<JavaBeans> lista = this.dao.buscarContato();
 		
@@ -53,7 +60,7 @@ public class Controller extends HttpServlet {
 		response.sendRedirect("main");
 	}
 	
-	protected void atualizarContato(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void selecionarContato(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String idcon = request.getParameter("idcon");
 		contato.setIdcon(idcon);
 		this.dao.selecionarContato(contato);

@@ -66,9 +66,11 @@ public class DAO {
 				contato.setEmail(executeUpdate.getString(4));
 			}
 			connection.close();
-		} catch (Exception e) {
-		}
-
+		} catch (Exception e) {}
+	}
+	
+	public void atualizarContato(JavaBeans contato) {
+		selecionarContato();
 	}
 
 	// Crud Read//
