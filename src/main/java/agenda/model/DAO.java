@@ -65,6 +65,7 @@ public class DAO {
 				contato.setFone(executeUpdate.getString(3));
 				contato.setEmail(executeUpdate.getString(4));
 			}
+			connection.close();
 		} catch (Exception e) {
 		}
 
