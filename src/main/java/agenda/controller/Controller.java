@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import agenda.model.DAO;
 import agenda.model.JavaBeans;
 
-@WebServlet(urlPatterns = { "/Controller", "/main", "/insert", "/select", "update", "delete" })
+@WebServlet(urlPatterns = { "/Controller", "/main", "/insert", "/select", "update", "delete", "/report" })
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	DAO dao = new DAO();
@@ -35,11 +35,18 @@ public class Controller extends HttpServlet {
 				this.atualizarContato(request, response);
 		} else if (p_action.equals("/delete")) {
 			this.excluir(request, response);
-		} else {
+		} else if (p_action.equals("/report")) {
+			this.gerarRelatorio(request, response);}
+		else {
 			response.sendRedirect("index.html");
 		}
 	}
 	
+	protected void gerarRelatorio(HttpServletRequest request, HttpServletResponse response) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	protected void atualizarContato(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		contato.setIdcon(request.getParameter("idcon"));
 		contato.setNome(request.getParameter("nome"));
