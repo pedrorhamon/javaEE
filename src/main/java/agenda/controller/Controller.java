@@ -69,6 +69,13 @@ public class Controller extends HttpServlet {
 			table.addCell(col2);
 			table.addCell(col3);
 			
+			List<JavaBeans> lista = dao.buscarContato();
+			for(int i =0; i< lista.size(); i++) {
+				table.addCell(lista.get(i).getNome());
+				table.addCell(lista.get(i).getFone());
+				table.addCell(lista.get(i).getEmail());
+			}
+			
 			document.add(table);
 			document.close();
 		} catch (Exception e) {
