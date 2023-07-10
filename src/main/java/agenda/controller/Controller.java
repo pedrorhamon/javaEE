@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+
 import agenda.model.DAO;
 import agenda.model.JavaBeans;
 
@@ -43,8 +47,19 @@ public class Controller extends HttpServlet {
 	}
 	
 	protected void gerarRelatorio(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
-		
+		Document document = new Document();
+		try {
+			response.setContentType("application/pdf");
+			response.addHeader("Content-Disposition", "inline, filename=" + "contatos.pdf");
+			
+			PdfWriter.getInstance(document, response.getOutputStream());
+			document.open();
+			document.add(new Paragraph("Lista de contatos:"));
+			document.close();
+		} catch (Exception e) {
+			log("Gerando Arquivo em PDF");
+			document.close();
+		}
 	}
 
 	protected void atualizarContato(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
