@@ -49,6 +49,10 @@ public class Controller extends HttpServlet {
 	}
 	
 	protected void gerarRelatorio(HttpServletRequest request, HttpServletResponse response) {
+		motandoRelatorio(response);
+	}
+
+	private void motandoRelatorio(HttpServletResponse response) {
 		Document document = new Document();
 		try {
 			response.setContentType("application/pdf");
