@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import agenda.model.DAO;
@@ -55,6 +57,19 @@ public class Controller extends HttpServlet {
 			PdfWriter.getInstance(document, response.getOutputStream());
 			document.open();
 			document.add(new Paragraph("Lista de contatos:"));
+			document.add(new Paragraph(" "));
+			
+			PdfPTable table = new PdfPTable(3);
+			
+			PdfPCell col1 = new PdfPCell(new Paragraph("Nome:"));
+			PdfPCell col2 = new PdfPCell(new Paragraph("Fone:"));
+			PdfPCell col3 = new PdfPCell(new Paragraph("Email:"));
+			
+			table.addCell(col1);
+			table.addCell(col2);
+			table.addCell(col3);
+			
+			document.add(table);
 			document.close();
 		} catch (Exception e) {
 			log("Gerando Arquivo em PDF");
