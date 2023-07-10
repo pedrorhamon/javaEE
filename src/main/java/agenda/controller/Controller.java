@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import agenda.model.DAO;
 import agenda.model.JavaBeans;
 
-@WebServlet(urlPatterns = { "/Controller", "/main", "/insert", "/select", "update" })
+@WebServlet(urlPatterns = { "/Controller", "/main", "/insert", "/select", "update", "delete" })
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	DAO dao = new DAO();
@@ -33,6 +33,8 @@ public class Controller extends HttpServlet {
 			this.selecionarContato(request, response);
 		}else if (p_action.equals("/update")) {
 				this.atualizarContato(request, response);
+		} else if (p_action.equals("/delete")) {
+			this.excluir(request, response);
 		} else {
 			response.sendRedirect("index.html");
 		}
@@ -81,15 +83,10 @@ public class Controller extends HttpServlet {
 	}
 	
 	protected void excluir(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(contato.getIdcon() != null) {
-			contato.setNome(request.getParameter("nome"));
-			contato.setFone(request.getParameter("fone"));
-			contato.setEmail(request.getParameter("email"));
-			
-			this.dao.deletar(contato);
-			response.sendRedirect("main");
-		}
-		throw new RuntimeException("Usuário já excluido!");
+		String idcon = request.getParameter("idcon");
+		contato.setIdcon(idcon);
+		this.dao.deletar(contato);
+		response.sendRedirect("main");
 	}
 
 	protected void contatos(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

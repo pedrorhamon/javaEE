@@ -113,7 +113,17 @@ public class DAO {
 	}
 
 	public void deletar(JavaBeans contato) {
-		String create = "delele from contatos (nome,fone,emal) where values (?,?,?)";
+		String deletar = "delele from contatos where idcon=?";
+
+		try {
+			Connection connection = conectar();
+
+			PreparedStatement pst = connection.prepareStatement(deletar);
+			pst.setString(1, contato.getIdcon());
+
+			pst.executeUpdate();
+			connection.close();
+		} catch (Exception e) {}
 	}
 
 //	public void testeConexao() {
