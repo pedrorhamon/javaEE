@@ -19,16 +19,37 @@ import com.itextpdf.text.pdf.PdfWriter;
 import agenda.model.DAO;
 import agenda.model.JavaBeans;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Controller.
+ */
 @WebServlet(urlPatterns = { "/Controller", "/main", "/insert", "/select", "update", "delete", "/report" })
 public class Controller extends HttpServlet {
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
+	
+	/** The dao. */
 	DAO dao = new DAO();
+	
+	/** The contato. */
 	private JavaBeans contato = new JavaBeans();
 
+	/**
+	 * Instantiates a new controller.
+	 */
 	public Controller() {
 		super();
 	}
 
+	/**
+	 * Do get.
+	 *
+	 * @param request the request
+	 * @param response the response
+	 * @throws ServletException the servlet exception
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String p_action = request.getServletPath();
 		if (p_action.equals("/main")) {
@@ -48,10 +69,21 @@ public class Controller extends HttpServlet {
 		}
 	}
 	
+	/**
+	 * Gerar relatorio.
+	 *
+	 * @param request the request
+	 * @param response the response
+	 */
 	protected void gerarRelatorio(HttpServletRequest request, HttpServletResponse response) {
 		motandoRelatorio(response);
 	}
 
+	/**
+	 * Motando relatorio.
+	 *
+	 * @param response the response
+	 */
 	private void motandoRelatorio(HttpServletResponse response) {
 		Document document = new Document();
 		try {
@@ -88,6 +120,14 @@ public class Controller extends HttpServlet {
 		}
 	}
 
+	/**
+	 * Atualizar contato.
+	 *
+	 * @param request the request
+	 * @param response the response
+	 * @throws ServletException the servlet exception
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	protected void atualizarContato(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		contato.setIdcon(request.getParameter("idcon"));
 		contato.setNome(request.getParameter("nome"));
@@ -99,6 +139,14 @@ public class Controller extends HttpServlet {
 		response.sendRedirect("main");
 	}
 
+	/**
+	 * Contatos lista.
+	 *
+	 * @param request the request
+	 * @param response the response
+	 * @throws ServletException the servlet exception
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	protected void contatosLista(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<JavaBeans> lista = this.dao.buscarContato();
 		
@@ -107,6 +155,14 @@ public class Controller extends HttpServlet {
 		rd.forward(request, response);
 	}
 
+	/**
+	 * Novo contato.
+	 *
+	 * @param request the request
+	 * @param response the response
+	 * @throws ServletException the servlet exception
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	protected void novoContato(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		contato.setNome(request.getParameter("nome"));
 		contato.setFone(request.getParameter("fone"));
@@ -116,6 +172,14 @@ public class Controller extends HttpServlet {
 		response.sendRedirect("main");
 	}
 	
+	/**
+	 * Selecionar contato.
+	 *
+	 * @param request the request
+	 * @param response the response
+	 * @throws ServletException the servlet exception
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	protected void selecionarContato(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String idcon = request.getParameter("idcon");
 		contato.setIdcon(idcon);
@@ -130,6 +194,14 @@ public class Controller extends HttpServlet {
 		rd.forward(request, response);
 	}
 	
+	/**
+	 * Excluir.
+	 *
+	 * @param request the request
+	 * @param response the response
+	 * @throws ServletException the servlet exception
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	protected void excluir(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String idcon = request.getParameter("idcon");
 		contato.setIdcon(idcon);
@@ -137,8 +209,15 @@ public class Controller extends HttpServlet {
 		response.sendRedirect("main");
 	}
 
+	/**
+	 * Contatos.
+	 *
+	 * @param request the request
+	 * @param response the response
+	 * @throws ServletException the servlet exception
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	protected void contatos(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.sendRedirect("agenda.jsp");
 	}
-
 }
