@@ -1,2 +1,2 @@
 # javaEE
-projeto legado em servlet
+projeto legado em servlet, jsf e jsp
